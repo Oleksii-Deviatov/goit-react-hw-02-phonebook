@@ -76,7 +76,7 @@ function PhoneBook() {
                 </li>
               );
             })
-          : contacts.map(({ id, name, numbejr }) => {
+          : contacts.map(({ id, name, number }) => {
               return (
                 <li key={id}>
                   {name}: {number}
