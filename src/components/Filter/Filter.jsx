@@ -1,8 +1,8 @@
 import React from 'react';
 
 function Filter({ setFind, find }) {
-  function inputFindHendler(e) {
-    setFind(e.target.value);
+  function inputFindHendler({ target: { value } }) {
+    setFind(value);
   }
 
   return (
