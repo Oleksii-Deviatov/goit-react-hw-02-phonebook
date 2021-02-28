@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ContactForm from '../ContactForm';
-// import Filter from '../Filter';
+import Filter from '../Filter';
+import ContactList from '../ContactList';
 
 function PhoneBook() {
   const [contacts, setContacts] = useState([
@@ -11,10 +12,6 @@ function PhoneBook() {
   ]);
 
   const [find, setFind] = useState('');
-
-  function inputFindHendler(e) {
-    setFind(e.target.value);
-  }
 
   function filterContacts() {
     if (find === '') {
@@ -30,29 +27,8 @@ function PhoneBook() {
       <h1>Phonebook</h1>
       <ContactForm setContacts={setContacts} />
       <h2>Contacts</h2>
-      <form>
-        <label>
-          find contact by name
-          <input type="text" value={find} onChange={inputFindHendler} />
-        </label>
-      </form>
-      <ul>
-        {filterContacts()
-          ? filterContacts().map(({ id, name, number }) => {
-              return (
-                <li key={id}>
-                  {name}: {number}
-                </li>
-              );
-            })
-          : contacts.map(({ id, name, number }) => {
-              return (
-                <li key={id}>
-                  {name}: {number}
-                </li>
-              );
-            })}
-      </ul>
+      <Filter setFind={setFind} find={find} />
+      <ContactList contacts={contacts} filterContacts={filterContacts} />
     </>
   );
 }
