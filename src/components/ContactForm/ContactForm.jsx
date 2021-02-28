@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import shortid from 'shortid';
+import { TextField, Button, Box } from '@material-ui/core';
 
 function ContactForm({ setContacts, contacts }) {
   const [inputName, setInputName] = useState('');
@@ -38,16 +39,26 @@ function ContactForm({ setContacts, contacts }) {
   }
 
   return (
-    <form onSubmit={submitHandler}>
-      <label>
-        name
-        <input type="text" value={inputName} onChange={inputNameHandler} />
-      </label>
-      <label>
-        number
-        <input value={inputNumber} type="tel" onChange={inputNumberHendler} />
-      </label>
-      <button type="submit">add contact</button>
+    <form onSubmit={submitHandler} autoComplete="off">
+      <Box display="flex" flexDirection="column">
+        <TextField
+          id="standard-basic"
+          label="Name"
+          value={inputName}
+          onChange={inputNameHandler}
+          margin="dense"
+        />
+        <TextField
+          id="standard-basic"
+          label="Number"
+          value={inputNumber}
+          onChange={inputNumberHendler}
+          margin="dense"
+        />
+        <Button variant="outlined" type="submit" color="primary">
+          add contact
+        </Button>
+      </Box>
     </form>
   );
 }

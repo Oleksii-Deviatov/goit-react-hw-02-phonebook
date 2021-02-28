@@ -1,12 +1,37 @@
 import React from 'react';
+import { Card, CardContent, IconButton, Box } from '@material-ui/core';
+import DeleteForeverTwoToneIcon from '@material-ui/icons/DeleteForeverTwoTone';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles({
+  listItem: {
+    '&:not(:last-child)': {
+      marginBottom: 10,
+    },
+  },
+});
 
 function Conact({ id, name, number, delContact }) {
+  const classes = useStyles();
+
   return (
-    <li>
-      {name}: {number}
-      <button type="button" onClick={() => delContact(id)}>
-        del
-      </button>
+    <li className={classes.listItem}>
+      <Card variant="outlined">
+        <CardContent>
+          <Box display="flex" justifyContent="space-between">
+            <p>
+              {name}: {number}
+            </p>
+            <IconButton
+              color="primary"
+              component="span"
+              onClick={() => delContact(id)}
+            >
+              <DeleteForeverTwoToneIcon />
+            </IconButton>
+          </Box>
+        </CardContent>
+      </Card>
     </li>
   );
 }
