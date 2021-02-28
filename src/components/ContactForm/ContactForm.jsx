@@ -17,6 +17,9 @@ function ContactForm({ setContacts, contacts }) {
 
   function submitHandler(e) {
     e.preventDefault();
+    if (inputName === '') {
+      return;
+    }
     if (
       contacts.find(
         ({ name }) => name.toLowerCase() === inputName.toLowerCase(),
