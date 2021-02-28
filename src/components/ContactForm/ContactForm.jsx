@@ -33,6 +33,8 @@ function ContactForm({ setContacts, contacts }) {
         number: inputNumber,
       },
     ]);
+    setInputName('');
+    setInputNumber('');
   }
 
   return (
