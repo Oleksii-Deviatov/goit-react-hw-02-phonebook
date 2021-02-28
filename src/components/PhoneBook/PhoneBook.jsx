@@ -25,7 +25,7 @@ function PhoneBook() {
   return (
     <>
       <h1>Phonebook</h1>
-      <ContactForm setContacts={setContacts} />
+      <ContactForm setContacts={setContacts} contacts={contacts} />
       <h2>Contacts</h2>
       <Filter setFind={setFind} find={find} />
       <ContactList contacts={contacts} filterContacts={filterContacts} />

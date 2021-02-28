@@ -1,45 +1,52 @@
 import React, { useState } from 'react';
 import shortid from 'shortid';
 
-function ContactForm({ setContacts }) {
-  const [name, setName] = useState('');
+function ContactForm({ setContacts, contacts }) {
+  const [inputName, setInputName] = useState('');
 
-  function inputHandler(e) {
-    setName(e.target.value);
+  function inputNameHandler({ target: { value } }) {
+    setInputName(value);
   }
 
-  const [number, setNunber] = useState('');
+  const [inputNumber, setInputNumber] = useState('');
 
-  function inputNumberHendler(e) {
-    setNunber(e.target.value);
+  function inputNumberHendler({ target: { value } }) {
+    setInputNumber(value);
   }
 
   function submitHandler(e) {
     e.preventDefault();
+    if (
+      contacts.find(
+        ({ name }) => name.toLowerCase() === inputName.toLowerCase(),
+      )
+    ) {
+      alert(`${inputName} already exist`);
+      return;
+    }
+
     setContacts(prevState => [
       ...prevState,
       {
         id: shortid(),
-        name,
-        number,
+        name: inputName,
+        number: inputNumber,
       },
     ]);
   }
 
   return (
-    <>
-      <form onSubmit={submitHandler}>
-        <label>
-          name
-          <input type="text" value={name} onChange={inputHandler} />
-        </label>
-        <label>
-          number
-          <input value={number} type="tel" onChange={inputNumberHendler} />
-        </label>
-        <button type="submit">add contact</button>
-      </form>
-    </>
+    <form onSubmit={submitHandler}>
+      <label>
+        name
+        <input type="text" value={inputName} onChange={inputNameHandler} />
+      </label>
+      <label>
+        number
+        <input value={inputNumber} type="tel" onChange={inputNumberHendler} />
+      </label>
+      <button type="submit">add contact</button>
+    </form>
   );
 }
 
