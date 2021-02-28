@@ -22,13 +22,21 @@ function PhoneBook() {
     );
   }
 
+  function delContact(id) {
+    setContacts(contacts.filter(el => el.id !== id));
+  }
+
   return (
     <>
       <h1>Phonebook</h1>
       <ContactForm setContacts={setContacts} contacts={contacts} />
       <h2>Contacts</h2>
       <Filter setFind={setFind} find={find} />
-      <ContactList contacts={contacts} filterContacts={filterContacts} />
+      <ContactList
+        contacts={contacts}
+        filterContacts={filterContacts}
+        delContact={delContact}
+      />
     </>
   );
 }
