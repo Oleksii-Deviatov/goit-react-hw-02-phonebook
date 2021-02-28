@@ -34,7 +34,13 @@ function ContactList({ contacts, filterContacts, delContact }) {
 }
 
 ContactList.propTypes = {
-  contacts: PropTypes.arrayOf(PropTypes.object).isRequired,
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
   filterContacts: PropTypes.func.isRequired,
   delContact: PropTypes.func.isRequired,
 };

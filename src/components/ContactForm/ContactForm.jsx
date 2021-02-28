@@ -69,7 +69,13 @@ function ContactForm({ setContacts, contacts }) {
 
 ContactForm.propTypes = {
   setContacts: PropTypes.func.isRequired,
-  contacts: PropTypes.arrayOf(PropTypes.object).isRequired,
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
 };
 
 export default ContactForm;
