@@ -1,16 +1,7 @@
 import React from 'react';
 import { TextField, Box } from '@material-ui/core';
-// import { makeStyles } from '@material-ui/core/styles';
-
-// const useStyles = makeStyles({
-//   input: {
-//     display: 'flex',
-//   },
-// });
 
 function Filter({ setFind, find }) {
-  // const classes = useStyles();
-
   function inputFindHendler({ target: { value } }) {
     setFind(value);
   }

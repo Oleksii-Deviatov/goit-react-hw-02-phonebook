@@ -1,17 +1,8 @@
 import React from 'react';
 import Conact from '../Contact';
-import { makeStyles } from '@material-ui/core/styles';
 import { List } from '@material-ui/core';
-const useStyles = makeStyles({
-  list: {
-    margin: 0,
-    padding: 0,
-  },
-});
 
 function ContactList({ contacts, filterContacts, delContact }) {
-  const classes = useStyles();
-
   return (
     <List>
       {filterContacts()
