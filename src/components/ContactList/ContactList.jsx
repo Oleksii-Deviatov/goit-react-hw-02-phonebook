@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Conact from '../Contact';
 import { List } from '@material-ui/core';
 
@@ -31,5 +32,11 @@ function ContactList({ contacts, filterContacts, delContact }) {
     </List>
   );
 }
+
+ContactList.propTypes = {
+  contacts: PropTypes.arrayOf(PropTypes.object).isRequired,
+  filterContacts: PropTypes.func.isRequired,
+  delContact: PropTypes.func.isRequired,
+};
 
 export default ContactList;

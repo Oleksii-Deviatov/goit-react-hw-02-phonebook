@@ -1,5 +1,6 @@
 import React from 'react';
 import { TextField, Box } from '@material-ui/core';
+import PropTypes from 'prop-types';
 
 function Filter({ setFind, find }) {
   function inputFindHendler({ target: { value } }) {
@@ -20,5 +21,10 @@ function Filter({ setFind, find }) {
     </form>
   );
 }
+
+Filter.propTypes = {
+  setFind: PropTypes.func.isRequired,
+  find: PropTypes.string.isRequired,
+};
 
 export default Filter;

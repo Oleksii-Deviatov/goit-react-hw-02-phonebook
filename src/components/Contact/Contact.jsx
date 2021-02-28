@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Card,
   CardContent,
@@ -43,5 +44,12 @@ function Conact({ id, name, number, delContact }) {
     </li>
   );
 }
+
+Conact.propTypes = {
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
+  delContact: PropTypes.func.isRequired,
+};
 
 export default Conact;

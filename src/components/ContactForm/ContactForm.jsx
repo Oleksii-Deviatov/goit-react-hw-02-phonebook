@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import shortid from 'shortid';
 import { TextField, Button, Box } from '@material-ui/core';
 
@@ -65,5 +66,10 @@ function ContactForm({ setContacts, contacts }) {
     </form>
   );
 }
+
+ContactForm.propTypes = {
+  setContacts: PropTypes.func.isRequired,
+  contacts: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default ContactForm;
