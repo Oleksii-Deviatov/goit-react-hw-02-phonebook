@@ -1,5 +1,11 @@
 import React from 'react';
-import { Card, CardContent, IconButton, Box } from '@material-ui/core';
+import {
+  Card,
+  CardContent,
+  IconButton,
+  Box,
+  CardActionArea,
+} from '@material-ui/core';
 import DeleteForeverTwoToneIcon from '@material-ui/icons/DeleteForeverTwoTone';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -17,20 +23,22 @@ function Conact({ id, name, number, delContact }) {
   return (
     <li className={classes.listItem}>
       <Card variant="outlined">
-        <CardContent>
-          <Box display="flex" justifyContent="space-between">
-            <p>
-              {name}: {number}
-            </p>
-            <IconButton
-              color="primary"
-              component="span"
-              onClick={() => delContact(id)}
-            >
-              <DeleteForeverTwoToneIcon />
-            </IconButton>
-          </Box>
-        </CardContent>
+        <CardActionArea>
+          <CardContent>
+            <Box display="flex" justifyContent="space-between">
+              <p>
+                {name}: {number}
+              </p>
+              <IconButton
+                color="primary"
+                component="span"
+                onClick={() => delContact(id)}
+              >
+                <DeleteForeverTwoToneIcon />
+              </IconButton>
+            </Box>
+          </CardContent>
+        </CardActionArea>
       </Card>
     </li>
   );
