@@ -10,7 +10,7 @@ function App() {
   const [find, setFind] = useState('');
 
   function filterContacts() {
-    if (find === '') {
+    if (!find) {
       return;
     }
     return contacts.filter(({ name }) =>
